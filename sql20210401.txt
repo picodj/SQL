@@ -2,5 +2,7 @@
 SELECT * -- 줄 끝까지 주석으로 처리됩니다.
 FROM employees; -- 명령어는 대문자로 사용을 권장 (필수는 아님)
 
+
+-- 원하는 열들의 이름만 선택해서 결과보기
 SELECT employee_id, first_name, last_name
 FROM employees;
