@@ -1,0 +1,31 @@
+SELECT COUNT(salary) salary행수
+FROM employees;
+
+SELECT SUM(salary) 합계, AVG(salary) 평균, SUM(salary)/COUNT(salary) 계산평균
+FROM employees;
+
+SELECT MAX(salary) 최댓값, MIN(salary) 최솟값, MAX(first_name) 최대문자값, MIN(first_name) 최소문자값
+FROM   employees;
+
+SELECT job_id 직무, SUM(salary) 직무별_총급여, AVG(salary) 직무별_평균급여
+FROM   employees
+WHERE  employee_id >= 10
+GROUP  BY job_id
+ORDER  BY 직무별_총급여 DESC, 직무별_평균급여;
+
+SELECT job_id job_id_대그룹, manager_id manager_id_중그룹, SUM(salary) 그룹핑_총급여, AVG(salary) 그룹핑_평균급여
+FROM   employees
+WHERE  employee_id >= 10
+GROUP  BY job_id, manager_id
+ORDER  BY 그룹핑_총급여 DESC, 그룹핑_평균급여;
+
+출력된 표를 우클릭 하여 익스포트
+익스포트후 형식을 xlsx 파일로 위치 저장 저장할때 확장자 .xlsx 하면 
+출력된 표를 엑셀형식으로 뽑을수 있음
+
+SELECT job_id 직무, SUM(salary) 직무별_총급여, AVG(salary) 직무별_평균급여
+FROM   employees
+WHERE  employee_id >= 10
+GROUP BY job_id
+HAVING   SUM(salary) > 30000
+ORDER BY 직무별_총급여 DESC, 직무별_평균급여;
